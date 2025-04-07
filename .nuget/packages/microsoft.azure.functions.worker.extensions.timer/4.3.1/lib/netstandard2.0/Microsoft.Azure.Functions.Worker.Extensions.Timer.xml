@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Azure.Functions.Worker.Extensions.Timer</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Azure.Functions.Worker.ScheduleStatus">
+            <summary>
+            Represents a timer schedule status.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Functions.Worker.ScheduleStatus.Last">
+            <summary>
+            Gets or sets the last recorded schedule occurrence.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Functions.Worker.ScheduleStatus.Next">
+            <summary>
+            Gets or sets the expected next schedule occurrence.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Functions.Worker.ScheduleStatus.LastUpdated">
+            <summary>
+            Gets or sets the last time this record was updated. This is used to re-calculate Next
+            with the current Schedule after a host restart.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Functions.Worker.TimerInfo">
+            <summary>
+            Provides access to timer schedule information for jobs triggered 
+            by <see cref="T:Microsoft.Azure.Functions.Worker.TimerTriggerAttribute"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Functions.Worker.TimerInfo.ScheduleStatus">
+            <summary>
+            Gets the current schedule status for this timer.
+            If schedule monitoring is not enabled for this timer (see <see cref="P:Microsoft.Azure.Functions.Worker.TimerTriggerAttribute.UseMonitor"/>)
+            this property will return null.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Functions.Worker.TimerInfo.IsPastDue">
+            <summary>
+            Gets a value indicating whether this timer invocation
+            is due to a missed schedule occurrence.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Functions.Worker.TimerTriggerAttribute">
+            <summary>
+            Attribute used to mark a function that should be invoked periodically based on
+            a timer schedule.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Functions.Worker.TimerTriggerAttribute.#ctor(System.String)">
+            <summary>
+            Constructs a new instance based on the schedule expression passed in.
+            </summary>
+            <param name="schedule">A schedule expression. This can either be a 6 field crontab expression
+            <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer#cron-expressions"/> or a <see cref="T:System.TimeSpan"/>
+            string (e.g. "00:30:00"). On Azure Functions, a TimeSpan string is only supported 
+            when running on an App Service Plan.</param>
+        </member>
+        <member name="P:Microsoft.Azure.Functions.Worker.TimerTriggerAttribute.Schedule">
+            <summary>
+            Gets the schedule expression.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Functions.Worker.TimerTriggerAttribute.UseMonitor">
+            <summary>
+            Gets or sets a value indicating whether the schedule should be monitored.
+            Schedule monitoring persists schedule occurrences to aid in ensuring the
+            schedule is maintained correctly even when roles restart.
+            If not set explicitly, this will default to true for schedules that have a recurrence
+            interval greater than 1 minute (i.e., for schedules that occur more than once
+            per minute, persistence will be disabled).
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Functions.Worker.TimerTriggerAttribute.RunOnStartup">
+            <summary>
+            Gets or sets a value indicating whether the function should be invoked
+            immediately on startup. After the initial startup run, the function will
+            be run on schedule thereafter.
+            </summary>
+        </member>
+    </members>
+</doc>

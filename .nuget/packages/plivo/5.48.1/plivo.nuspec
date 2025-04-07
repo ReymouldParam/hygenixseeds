@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Plivo</id>
+    <version>5.48.1</version>
+    <title>Plivo</title>
+    <authors>Plivo SDKs Team</authors>
+    <owners>Plivo, Inc.</owners>
+    <licenseUrl>https://github.com/plivo/plivo-dotnet/blob/master/LICENSE.txt</licenseUrl>
+    <projectUrl>http://github.com/plivo/plivo-dotnet</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A .NET SDK to make voice calls and send SMS using Plivo and to generate Plivo XML</description>
+    <summary>A .NET SDK to make voice calls and send SMS using Plivo and to generate Plivo XML</summary>
+    <releaseNotes>* 5.46.0 Added new param `location` to [send message API](https://www.plivo.com/docs/sms/api/message#send-a-message) to support location `whatsapp` messages. Also added new param `location` in templates to support location based templated messages
+      * 5.45.0 Added new param `interactive` to in send message API to support interactive `whatsapp` messages
+      * 5.44.0 Added new param `payload` in templates to support dynamic payload in templates
+      * 5.43.2 Added New Param `declined_reasons` for GET and LIST Brand.
+      * 5.43.1 Bug fix on Create Profile API
+      * 5.43.0 Added Import Campaign API
+      * 5.42.0 Added Params `vertical`, `campaign_alias` for GET and LIST Campaigns.
+      * 5.41.1 Support Params `from_number` and `to_number` for LIST Message.
+      * 5.41.0 Added New Params `error_code`, `error_reason` for GET and LIST Campaign.
+      * 5.40.0 Added New Params `registration_status`.
+      * 5.39.0 API support for verifying, updating, getting and deleting caller IDs.
+      * 5.38.0 Adding verify service APIs.
+      * 5.37.0 API support for Create, Update, Get, Delete and List Tollfree Verification.
+      * 5.36.0 Added New Params `campaign_source`.
+      * 5.35.0 Fixes for Campaign services list API meta data.
+      * 5.34.0 Added new params `template`, `template_json_string` and message_type `whatsapp`in send message API. Added new `message_state` (`read`), `message_type` (`whatsapp`), `conversation_id`, `conversation_origin`, `conversation_expiration_timestamp` in List Message and Get Message APIs.
+      * 5.33.0 Added New Params `DestinationNetwork`, `CarrierFeesRate`, `CarrierFees`.
+      * 5.32.0 Added New Params `DLTEntityID`, `DLTTemplateID`, `DLTTemplateCategory`.
+      * 5.31.0 Added functionality to start, stop and fetch audio streams
+      * 5.30.0 Added New Param 'cnam_lookup' in to the response of the [list all numbers API], [list single number API]
+      * 5.29.0 Added New Param 'cnam_lookup_number_config' in GetCall and ListCalls 
+      * 5.28.0 Added new Params 'MonthlyRecordingStorageAmount', 'RecordingStorageRate', 'RecordingStorageDuration' and 'RoundedRecordingDuration' to List Recordings and Get Recording APIs
+      * 5.27.0 Added New Param 'renewalDate' in GetNumbers and ListNumbers. Add 5 new filters to AccountPhoneNumber - list all my numbers API:'renewal_date', 'renewal_date__gt', 'renewal_date__gte','renewal_date__lt' and 'renewal_date__lte'
+      * 5.26.0 Added new param 'ReplacedSender' to the response
+      * 5.25.0 Added New Param 'source_ip' in GetCall and ListCalls. Add source_ip to the response for the retrieve a call details API and the retreive all call details API
+      * 5.24.0 Added New Param 'CreatedAt' to List Profiles, Get Profile, List Brands, Get Brand, List Campaigns, Get Campaign APIs
+      * 5.23.0 Added New Param 'IsDomestic' to List Message and Get Message APIs
+      * 5.22.0 Added New Params to List Message and Get Message APIs
+      * 5.21.0 Added New Param 'RequesterIp' to List Message and Get Message APIs
+      * 5.19.0 Added Update campaign endpoints
+      * 5.18.0 Added Delete campaign and brand endpoints
+      * 5.17.0 Added BrandUsecase Api, 10dlc enhancements
+      * 5.16.0 Adding more attribute on Account PhoneNumber Object
+      * 5.15.4 Bug fix on Get and List Profile Api
+      * 5.15.3 Adding more attributes on 10dlc campaign creation request 
+      * 5.15.2 Bug fix on link number async
+      * 5.14.1 Bug fix on powerpack count number api
+      * 5.14.0 Added stir attestation param as part of Get CDR and live call APIs
+      * 5.13.4 Printing the Exception for 400 error case.
+      * 5.11.0 tendlc brand, campaign, number linking api callback support.
+      * 5.10.0 Async SDK requests support for all the Voice APIs.
+      * 5.9.0 tendlc related api support.
+      * 5.8.0 confirmTimeout parameter added in DialElement.
+      * 5.7.4 member_address added in ListParticipants response.
+      * 5.7.3 Added support to query via city for Phone number list calls.
+      * 5.7.2 parameter change from status_callback to recording_callback.
+      * 5.7.1 Log SDK version in the HTTP request.
+      * 5.7.0 10dlc api suuport
+      * 5.6.1 Added an exception to allow for more efficient error logs.
+      * 5.6.0 Route Voice SDK traffic through AKAMAI endpoints
+      * 5.5.0 Consists of enhancements to the Voice Multi Party Call Interface that deals with accepting more params to the MPC AddParticipant API and allows support for Play and Stop Audio APIs of MPC similar to that of Conference
+      * 5.4.0 This version includes advancements to the Messaging Interface that deals with the Send SMS/MMS interface, Creating a standard structure for request/input arguments to make implementation easier and incorporating support for the older interface.
+      * 5.3.0 Added Generic error message for mandatory params in Call and MPC, and removed range validation for ringtimeout and delaydial params in MPC.
+      * 5.2.1 Change default request timeout value to 5
+      * 5.2.0 Add support for MPC APIs and XML (Voice retry included), validated voice UTs.
+      * 5.1.0 Power pack ID has been included to the response for the list all messages API and the get message details API.
+      * 5.0.1 Make parameters optional for XML method AddSpeak
+      * 5.0.0 Removed the total_count parameter in meta data for list MDR response
+      * 4.17.1 Read voice network group from voice pricing and list/get CDR response
+      * 4.17.0 Add stir verification param as part of Get CDR and Live call API response
+      * 4.16.1 Read origination prefix from voice pricing
+      * 4.15.1 Fix Prosody XML error - SSML.
+      * 4.15.0 Add number_priority support for Powerpack API.
+      * 4.14.0 Change lookup API endpoint and response.
+      * 4.13.0 Add support for Lookup API.
+      * 4.12.0 Add "PublicUri" optional param support for Application API
+      * 4.11.0 Add Powerpack for MMS
+      * 4.10.2 Internal changes in PHLO for MultiPartyCall component.
+      * 4.10.1 Added exception handling for non json error responses and statuscode 401.
+      * 4.10.0 Add retries to multiple regions for voice requests.
+      * 4.9.1 Fix List Call Details response.
+      * 4.9.0 Add JWT helper functions.
+      * 4.8.2 Fix List All Rented Numbers API response.
+      * 4.8.1 Add Send MMS using Media_ID support.
+      * 4.8.0 Add V3 signature helper functions.
+      * 4.7.1 Fix Bulk call API response.
+      * 4.7.0 Add application cascade delete support.
+      * 4.6.0 Add Tollfree support for Powerpack
+      * 4.5.0 Add post call quality feedback API support.
+      * 4.4.10 Fix Newtonsoft warning.
+      * 4.4.9 Add Media support.
+      * 4.4.8 Add Powerpack support.
+      * 4.4.7 Add MMS support.
+      * 4.4.6 Add GetInput XML support.
+      * 4.4.5 Add proxy-support for Signature Validation.
+      * 4.4.4 Fix support for mixed SSML tags.
+      * 4.4.3 Add logic to handle invalid numbers for bulk SMS.
+      * 4.4.2 Add Status Code in API responses
+      * 4.4.1 Add AggregateException Flattening
+      * 4.4.0 Add PHLO support and Multi-party call triggers
+      * 4.3.0-beta1 Add PHLO support and Multi-party call triggers in beta release
+      * 4.2.3 Update Thread Safety handling for synchronous execution.
+      * 4.2.2 Fix dynamic object usage with async/await statement.
+      * 4.2.1 Fix Web Proxy support.
+      * 4.2.0 Changed base reference to .NET Standard 2.0 to support System.Web.Proxy.  Added Strong Naming instructions
+      * 4.1.7 Add hangup party details to CDR. CDR filtering allowed by hangup_source and hangup_cause_code.
+      * 4.1.7 Add sub-account cascade delete support.
+      * 4.1.6 Add live calls filtering by to, from numbers and call direction.
+      * 4.1.5 Add support for SSML tags.
+      * 4.1.4 Add Trackable parameter in messages.
+      * 4.1.3 Added parent_call_uuid parameter added to filter calls.
+      * 4.1.3 Queued status added for filtering calls in queued status.
+      * 4.1.2 Added log_incoming_messages parameter to Create and Update Application api.
+      * 4.1.0 Added Address and Identity resources. Fixes unhandled NullReferenceException.
+      * 4.0.0 Supports v2 signature validation. Targets .NET Standard 1.3
+      * 4.0.0-beta2 Fix Pricing API interface
+      * 4.0.0-beta1 Support .NET Core 1.0+ and .NET Framework 4.5+
+      * 3.0.7 Re-release
+      * 3.0.6 Added addition verify signature function
+      * 3.0.5 Added support for RestSharp 105.2.3
+      * 3.0.4 Added digitsMatchBLeg parameter to Dial XML.
+      * 3.0.3 Fixed sorting in Verify function
+      * 3.0.2 Added answer_time and initiation_time to CDR model.
+      * 3.0.1 Added beep attribute to Wait XML.
+      * 3.0.0 Updated RestSharpSigned
+      * 2.0.2 Added Request API function, stop_speak_member function in Conference API and abstracted all API responses to a parent class PlivoResponse.
+      * 2.0.1 Added modify_number function.
+      * 2.0.0 Update and separate bundling of RestSharp client and add RestSharpSigned as nuget package dependency. Signed version enables it to work with modern as well as older projects that still require strongname binaries.
+      * 1.3.7 Make Verify Signature function public
+      * 1.3.5 PhoneNumber API
+      * 1.3.2 Added old_auth_token and auth_token fields to SubAccount response
+      * 1.3.1 Added log attribute in GetDigits to handle sensitive DTMF info
+      * 1.3.0 Added Delete Recording API
+      * 1.2.9 Added minSilence attribute in Wait, async attribute in DTMF, NuGet Update -selfrelayDTMF attribute in Conference, stop_speak() method and invalid_numbers in Call Response and added get_account, get_recordings, get_recording and get_recording_by_call_uuid methods
+      * 1.2.8 Fixed issue with returning of nested XML object.
+      * 1.2.7 Added 'recordWhenAlone' attribute in Conference XML.
+      * 1.2.6 Fixed available number group for renting numbers.
+      * 1.2.5 Fix issues with packaging.
+      * 1.2.3 Allow optional parameters on various APIs.
+      * 1.2.2 Minor change. Fix for speak api method.
+      * 1.2.0 Additional APIs coverage: incoming carrier and pricing. support for unicode.
+      * 1.1.7 Minor change. Updated attributes for Conference and Record Elements.
+      * 1.1.6 Minor change. Updated attributes for GetDigits Element.
+      * 1.1.5 Minor change. Updated attributes for Conference Element.
+      * 1.1.4 Minor change. Updated attributes for Record Element.
+      * 1.1.3 Minor fix for attribute error.
+      * 1.1.2 Added attribute to XML element Wait.
+      * 1.1.1 Added method for making bulk calls with sip headers for each.
+      * 1.1.0 Multilingual speak support html entities. Added the new message APIs. Also updated various model attributes to handle json response.
+      * 1.0.3 Minor fix to deal with GET request on few resources.
+      * 1.0.2 Minor fix for PlivoElement.AddWait method.
+      * 1.0.1 Minor fix for Number API calls.
+      * 1.0   Supports making Plivo APIs calls and generation of Plivo XML.</releaseNotes>
+    <copyright>Copyright (c) 2018 Plivo, Inc.</copyright>
+    <tags>Plivo REST voice SMS telephony API XML</tags>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="10.0.1" />
+      <dependency id="System.Text.Encoding.Extensions" version="4.3.0" />
+      <dependency id="System.Net.Http" version="4.3.1" />
+      <dependency id="System.IO.FileSystem" version="4.3.0" />
+      <dependency id="JWT" version="6.1.4" />
+    </dependencies>
+  </metadata>
+</package>
